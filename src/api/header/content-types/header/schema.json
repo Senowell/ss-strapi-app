@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SiteName": {
+      "type": "string"
+    },
+    "QuickLinks": {
+      "type": "component",
+      "component": "navigation.link",
+      "repeatable": true
+    },
+    "Menu": {
+      "type": "component",
+      "component": "menu-section.mega-menu",
+      "repeatable": true
+    }
+  }
+}

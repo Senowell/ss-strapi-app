@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_section_mega_menus",
+  "info": {
+    "displayName": "Mega Menu",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Links": {
+      "type": "component",
+      "component": "navigation.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
