@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface DownloadsDownloadItems extends Struct.ComponentSchema {
+  collectionName: 'components_downloads_download_items';
+  info: {
+    displayName: 'Download Items';
+  };
+  attributes: {
+    Category: Schema.Attribute.Enumeration<['Brochure', 'Flyer', 'Manual']>;
+    Description: Schema.Attribute.Text;
+    File: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface MenuSectionMegaMenu extends Struct.ComponentSchema {
   collectionName: 'components_menu_section_mega_menus';
   info: {
@@ -28,6 +42,7 @@ export interface NavigationLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'downloads.download-items': DownloadsDownloadItems;
       'menu-section.mega-menu': MenuSectionMegaMenu;
       'navigation.link': NavigationLink;
     }

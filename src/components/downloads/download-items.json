@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_downloads_download_items",
+  "info": {
+    "displayName": "Download Items"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "File": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Brochure",
+        "Flyer",
+        "Manual"
+      ]
+    }
+  },
+  "config": {}
+}
