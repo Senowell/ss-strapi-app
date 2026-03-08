@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_news_section_news",
+  "info": {
+    "displayName": "News"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

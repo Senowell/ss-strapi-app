@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string"
+    },
+    "introSection": {
+      "type": "component",
+      "component": "about.intro-section",
+      "repeatable": false
+    },
+    "leadership": {
+      "type": "component",
+      "component": "about.team-member",
+      "repeatable": true
+    },
+    "Solutions": {
+      "type": "component",
+      "component": "about.solution-block",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_intro_sections",
+  "info": {
+    "displayName": "Intro Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
