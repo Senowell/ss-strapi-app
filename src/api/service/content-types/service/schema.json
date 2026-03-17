@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ShortDescription": {
+      "type": "text"
+    },
+    "FeaturedService": {
+      "type": "boolean"
+    },
+    "HeroTitle": {
+      "type": "string"
+    },
+    "HeroSubtitle": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "ChallengeTitle": {
+      "type": "string"
+    },
+    "ChallengeDescription": {
+      "type": "text"
+    },
+    "ServiceApplication": {
+      "type": "component",
+      "component": "service.application-items",
+      "repeatable": true
+    },
+    "ServiceAssert": {
+      "type": "component",
+      "component": "service.assert-items",
+      "repeatable": true
+    },
+    "DownloadsSection": {
+      "type": "component",
+      "component": "downloads.download-items",
+      "repeatable": true
+    },
+    "associatedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

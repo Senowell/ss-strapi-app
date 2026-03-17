@@ -88,6 +88,27 @@ export interface NewsSectionNews extends Struct.ComponentSchema {
   };
 }
 
+export interface ServiceApplicationItems extends Struct.ComponentSchema {
+  collectionName: 'components_service_application_items';
+  info: {
+    displayName: 'Application Items';
+  };
+  attributes: {
+    items: Schema.Attribute.RichText;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ServiceAssertItems extends Struct.ComponentSchema {
+  collectionName: 'components_service_assert_items';
+  info: {
+    displayName: 'Assert Items';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -98,6 +119,8 @@ declare module '@strapi/strapi' {
       'menu-section.mega-menu': MenuSectionMegaMenu;
       'navigation.link': NavigationLink;
       'news-section.news': NewsSectionNews;
+      'service.application-items': ServiceApplicationItems;
+      'service.assert-items': ServiceAssertItems;
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_service_assert_items",
+  "info": {
+    "displayName": "Assert Items"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

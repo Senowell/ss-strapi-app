@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_service_application_items",
+  "info": {
+    "displayName": "Application Items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}
