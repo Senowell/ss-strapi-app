@@ -28,6 +28,11 @@
       "type": "component",
       "component": "about.solution-block",
       "repeatable": true
+    },
+    "companyNews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
     }
   }
 }

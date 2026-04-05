@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
+    "description": "Company news and blog posts"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Summary": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "blocks",
+      "required": true
+    },
+    "CoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "PublishedDate": {
+      "type": "date"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": ["News", "Announcement", "Article", "Case Study", "Other"],
+      "default": "News"
+    }
+  }
+}
