@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_submissions",
+  "info": {
+    "singularName": "contact-submission",
+    "pluralName": "contact-submissions",
+    "displayName": "Contact Us",
+    "description": "Form submissions from the Contact Us page"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "areaOfInterest": {
+      "type": "enumeration",
+      "enum": [
+        "testing",
+        "monitoring",
+        "consulting",
+        "products",
+        "other"
+      ],
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "newsletter": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
