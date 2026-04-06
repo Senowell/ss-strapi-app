@@ -44,45 +44,49 @@ module.exports = createCoreController(
         return ctx.internalServerError('Failed to save submission');
       }
 
-      // ── Send emails ───────────────────────────────────────────
+      // ── Send emails (fire-and-forget — don't block the response) ─
       const emailService = strapi.plugins['email']?.services?.email;
 
       if (emailService) {
-        try {
-          // Email #1 – confirmation to the user
-          await emailService.send({
-            to:      email.trim(),
-            subject: 'We received your request',
-            text: `Hi ${firstName},\n\nThank you for reaching out to Senowell Systems. We have received your enquiry and a member of our support team will get back to you shortly.\n\nBest regards,\nSenowell Systems Team`,
-            html: `
-              <p>Hi <strong>${firstName}</strong>,</p>
-              <p>Thank you for reaching out to <strong>Senowell Systems</strong>. We have received your enquiry and a member of our support team will get back to you shortly.</p>
-              <p>Best regards,<br/>Senowell Systems Team</p>
-            `,
-          });
+        const sendEmails = async () => {
+          try {
+            // Email #1 – confirmation to the user
+            await emailService.send({
+              to:      email.trim(),
+              subject: 'We received your request',
+              text: `Hi ${firstName},\n\nThank you for reaching out to Senowell Systems. We have received your enquiry and a member of our support team will get back to you shortly.\n\nBest regards,\nSenowell Systems Team`,
+              html: `
+                <p>Hi <strong>${firstName}</strong>,</p>
+                <p>Thank you for reaching out to <strong>Senowell Systems</strong>. We have received your enquiry and a member of our support team will get back to you shortly.</p>
+                <p>Best regards,<br/>Senowell Systems Team</p>
+              `,
+            });
 
-          // Email #2 – notification to support team
-          await emailService.send({
-            to:      'support@senowell.systems',
-            subject: 'New Contact Form Submission',
-            text: `New contact form submission:\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nArea of Interest: ${areaOfInterest}\nNewsletter: ${newsletter ? 'Yes' : 'No'}\n\nMessage:\n${message}`,
-            html: `
-              <h2>New Contact Form Submission</h2>
-              <table>
-                <tr><td><strong>Name</strong></td><td>${firstName} ${lastName}</td></tr>
-                <tr><td><strong>Email</strong></td><td>${email}</td></tr>
-                <tr><td><strong>Phone</strong></td><td>${phone || 'N/A'}</td></tr>
-                <tr><td><strong>Area of Interest</strong></td><td>${areaOfInterest}</td></tr>
-                <tr><td><strong>Newsletter</strong></td><td>${newsletter ? 'Yes' : 'No'}</td></tr>
-              </table>
-              <h3>Message</h3>
-              <p>${message.replace(/\n/g, '<br/>')}</p>
-            `,
-          });
-        } catch (emailErr) {
-          // Log but don't fail the request — entry is already saved
-          strapi.log.error('Contact submission email error:', emailErr);
-        }
+            // Email #2 – notification to support team
+            await emailService.send({
+              to:      'support@senowell.systems',
+              subject: 'New Contact Form Submission',
+              text: `New contact form submission:\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nArea of Interest: ${areaOfInterest}\nNewsletter: ${newsletter ? 'Yes' : 'No'}\n\nMessage:\n${message}`,
+              html: `
+                <h2>New Contact Form Submission</h2>
+                <table>
+                  <tr><td><strong>Name</strong></td><td>${firstName} ${lastName}</td></tr>
+                  <tr><td><strong>Email</strong></td><td>${email}</td></tr>
+                  <tr><td><strong>Phone</strong></td><td>${phone || 'N/A'}</td></tr>
+                  <tr><td><strong>Area of Interest</strong></td><td>${areaOfInterest}</td></tr>
+                  <tr><td><strong>Newsletter</strong></td><td>${newsletter ? 'Yes' : 'No'}</td></tr>
+                </table>
+                <h3>Message</h3>
+                <p>${message.replace(/\n/g, '<br/>')}</p>
+              `,
+            });
+          } catch (emailErr) {
+            strapi.log.error('Contact submission email error:', emailErr);
+          }
+        };
+
+        // Intentionally not awaited — response is returned immediately
+        sendEmails();
       }
 
       return ctx.created({ data: entry });
