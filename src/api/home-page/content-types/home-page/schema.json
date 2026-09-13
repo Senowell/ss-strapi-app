@@ -20,6 +20,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "HomePageVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }

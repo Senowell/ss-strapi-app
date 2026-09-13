@@ -488,6 +488,8 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    AboutPageVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     companyNews: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -522,6 +524,8 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Author: Schema.Attribute.String;
+    BlogVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     Category: Schema.Attribute.Enumeration<
       ['News', 'Announcement', 'Article', 'Case Study', 'Other']
     > &
@@ -562,6 +566,8 @@ export interface ApiContactSubmissionContactSubmission
       ['testing', 'monitoring', 'consulting', 'products', 'other']
     > &
       Schema.Attribute.Required;
+    ContactUsVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -695,6 +701,8 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::service.service'
     >;
+    HomePageVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -742,6 +750,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
+    ProductVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     publishedAt: Schema.Attribute.DateTime;
     Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Subtitle: Schema.Attribute.String;
@@ -796,6 +806,8 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       true
     >;
     ServiceAssert: Schema.Attribute.Component<'service.assert-items', true>;
+    ServiceVideo: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::video-field.video'>;
     ShortDescription: Schema.Attribute.Text;
     Slug: Schema.Attribute.UID<'Title'>;
     Subtitle: Schema.Attribute.String;

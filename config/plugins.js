@@ -17,5 +17,8 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  "video-field":{
+    enabled:true
+  }
 });
 

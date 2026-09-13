@@ -78,6 +78,10 @@
       "relation": "manyToMany",
       "target": "api::faq.faq",
       "mappedBy": "services"
+    },
+    "ServiceVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }

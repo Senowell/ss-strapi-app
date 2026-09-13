@@ -31,7 +31,9 @@
     "CoverImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "PublishedDate": {
       "type": "date"
@@ -41,8 +43,18 @@
     },
     "Category": {
       "type": "enumeration",
-      "enum": ["News", "Announcement", "Article", "Case Study", "Other"],
-      "default": "News"
+      "default": "News",
+      "enum": [
+        "News",
+        "Announcement",
+        "Article",
+        "Case Study",
+        "Other"
+      ]
+    },
+    "BlogVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }

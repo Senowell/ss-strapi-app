@@ -52,6 +52,10 @@
       "relation": "manyToMany",
       "target": "api::faq.faq",
       "mappedBy": "products"
+    },
+    "ProductVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }

@@ -33,6 +33,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog.blog"
+    },
+    "AboutPageVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }

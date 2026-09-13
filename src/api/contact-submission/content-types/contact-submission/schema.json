@@ -29,14 +29,14 @@
     },
     "areaOfInterest": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "testing",
         "monitoring",
         "consulting",
         "products",
         "other"
-      ],
-      "required": true
+      ]
     },
     "message": {
       "type": "text",
@@ -45,6 +45,10 @@
     "newsletter": {
       "type": "boolean",
       "default": false
+    },
+    "ContactUsVideo": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
     }
   }
 }
