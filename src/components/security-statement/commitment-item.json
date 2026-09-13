@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_security_statement_commitment_items",
+  "info": {
+    "displayName": "Commitment Item"
+  },
+  "options": {},
+  "attributes": {
+    "statement": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

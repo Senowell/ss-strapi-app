@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_security_statement_download_items",
+  "info": {
+    "displayName": "Download Item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

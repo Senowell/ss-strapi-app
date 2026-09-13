@@ -88,6 +88,39 @@ export interface NewsSectionNews extends Struct.ComponentSchema {
   };
 }
 
+export interface SecurityStatementCommitmentItem
+  extends Struct.ComponentSchema {
+  collectionName: 'components_security_statement_commitment_items';
+  info: {
+    displayName: 'Commitment Item';
+  };
+  attributes: {
+    statement: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface SecurityStatementCoverageArea extends Struct.ComponentSchema {
+  collectionName: 'components_security_statement_coverage_areas';
+  info: {
+    displayName: 'Coverage Area';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SecurityStatementDownloadItem extends Struct.ComponentSchema {
+  collectionName: 'components_security_statement_download_items';
+  info: {
+    displayName: 'Download Item';
+  };
+  attributes: {
+    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ServiceApplicationItems extends Struct.ComponentSchema {
   collectionName: 'components_service_application_items';
   info: {
@@ -119,6 +152,9 @@ declare module '@strapi/strapi' {
       'menu-section.mega-menu': MenuSectionMegaMenu;
       'navigation.link': NavigationLink;
       'news-section.news': NewsSectionNews;
+      'security-statement.commitment-item': SecurityStatementCommitmentItem;
+      'security-statement.coverage-area': SecurityStatementCoverageArea;
+      'security-statement.download-item': SecurityStatementDownloadItem;
       'service.application-items': ServiceApplicationItems;
       'service.assert-items': ServiceAssertItems;
     }

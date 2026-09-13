@@ -1,0 +1,73 @@
+{
+  "kind": "singleType",
+  "collectionName": "security_statements",
+  "info": {
+    "singularName": "security-statement",
+    "pluralName": "security-statements",
+    "displayName": "SecurityStatement",
+    "description": "Privacy and Security Statement page content for Senowell Labs"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "objectivesIntro": {
+      "type": "text"
+    },
+    "legalFoundation": {
+      "type": "text"
+    },
+    "commitments": {
+      "type": "component",
+      "component": "security-statement.commitment-item",
+      "repeatable": true
+    },
+    "transparencyParagraph": {
+      "type": "text"
+    },
+    "staffNote": {
+      "type": "text"
+    },
+    "privacyStatementTitle": {
+      "type": "string"
+    },
+    "companyDetails": {
+      "type": "text"
+    },
+    "introduction": {
+      "type": "text"
+    },
+    "coverageAreas": {
+      "type": "component",
+      "component": "security-statement.coverage-area",
+      "repeatable": true
+    },
+    "contactEmail": {
+      "type": "string"
+    },
+    "signatoryName": {
+      "type": "string"
+    },
+    "signatoryTitle": {
+      "type": "string"
+    },
+    "statementDate": {
+      "type": "date"
+    },
+    "lastRevised": {
+      "type": "date"
+    },
+    "downloads": {
+      "type": "component",
+      "component": "security-statement.download-item",
+      "repeatable": true
+    }
+  }
+}

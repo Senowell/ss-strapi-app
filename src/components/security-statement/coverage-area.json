@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_security_statement_coverage_areas",
+  "info": {
+    "displayName": "Coverage Area"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

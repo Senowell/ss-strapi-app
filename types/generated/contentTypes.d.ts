@@ -762,6 +762,61 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSecurityStatementSecurityStatement
+  extends Struct.SingleTypeSchema {
+  collectionName: 'security_statements';
+  info: {
+    description: 'Privacy and Security Statement page content for Senowell Labs';
+    displayName: 'SecurityStatement';
+    pluralName: 'security-statements';
+    singularName: 'security-statement';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    commitments: Schema.Attribute.Component<
+      'security-statement.commitment-item',
+      true
+    >;
+    companyDetails: Schema.Attribute.Text;
+    contactEmail: Schema.Attribute.String;
+    coverageAreas: Schema.Attribute.Component<
+      'security-statement.coverage-area',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    downloads: Schema.Attribute.Component<
+      'security-statement.download-item',
+      true
+    >;
+    introduction: Schema.Attribute.Text;
+    lastRevised: Schema.Attribute.Date;
+    legalFoundation: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::security-statement.security-statement'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    objectivesIntro: Schema.Attribute.Text;
+    pageTitle: Schema.Attribute.String;
+    privacyStatementTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    signatoryName: Schema.Attribute.String;
+    signatoryTitle: Schema.Attribute.String;
+    staffNote: Schema.Attribute.Text;
+    statementDate: Schema.Attribute.Date;
+    transparencyParagraph: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Struct.CollectionTypeSchema {
   collectionName: 'services';
   info: {
@@ -1338,6 +1393,7 @@ declare module '@strapi/strapi' {
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::product.product': ApiProductProduct;
+      'api::security-statement.security-statement': ApiSecurityStatementSecurityStatement;
       'api::service.service': ApiServiceService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
